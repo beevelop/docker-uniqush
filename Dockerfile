@@ -10,7 +10,9 @@ COPY uniqush-push.conf ./
 
 RUN apt-get -qq update && apt-get -qq install -y curl && \
     curl -sLo uniqush-push.deb https://uniqush.org/downloads/uniqush-push_${UNIQUSH_VERSION}_amd64.deb && \
-    dpkg -i uniqush-push.deb
+    dpkg -i uniqush-push.deb && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
+    apt-get clean
 
 EXPOSE 9898
 
