@@ -6,11 +6,16 @@
 # [Uniqush](https://uniqush.org/) for Docker :whale:
 > :calling: Uniqush provides a unified push service for server-side notification to apps on any supported mobile platform.
 
+## Docker-Compose
+```bash
+git clone https://github.com/beevelop/docker-uniqush && cd docker-uniqush
+docker-compose up -d
+```
+
 ## Manually
 ```bash
 docker run -d --name redis redis:alpine
+docker run -d --link redis:redis --name uniqush -p 9898:9898 beevelop/uniqush
 ```
 
-```bash
-docker run -d --link redis:redis --name uniqush -p 8080:9898 beevelop/uniqush
-```
+You can validate that Uniqush successfully launched by accessing **http://YOUR_HOST:9898/version**.
