@@ -1,0 +1,10 @@
+sudo: required
+
+services:
+  - docker
+
+script:
+  - docker build -t uq .
+  - docker run -d --name redis redis:alpine
+  - docker run -d --name uq --link redis:redis uq
+  - docker exec uq /bin/sh -c "curl -f localhost:9898/version"
