@@ -1,0 +1,11 @@
+uniqush:
+  container_name: uniqush-server
+  image: beevelop/uniqush
+  links:
+    - redis
+  restart: always
+
+redis:
+  container_name: uniqush-redis
+  image: redis:alpine
+  restart: always
