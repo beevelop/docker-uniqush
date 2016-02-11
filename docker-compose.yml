@@ -3,11 +3,11 @@ uniqush:
   image: beevelop/uniqush
   links:
     - redis
+  ports:
+    - "9898:9898"
   restart: always
 
 redis:
   container_name: uniqush-redis
   image: redis:alpine
-  ports:
-    - "9898:9898"
   restart: always
