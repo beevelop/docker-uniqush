@@ -6,7 +6,12 @@ uniqush:
   ports:
     - "9898:9898"
   restart: always
-
+  environment:
+    - REDIS_HOST=redis
+  entrypoint:
+    - envsubst < /opt/uniqush/uniqush-push.conf > /opt/uniqush/uniqush-push-env.conf
+    - &&
+    - uniqush-push -config /opt/uniqush/uniqush-push-env.conf
 redis:
   container_name: uniqush-redis
   image: redis:alpine
