@@ -1,6 +1,6 @@
 uniqush:
   container_name: uniqush-server
-  image: gogoo
+  image: beevelop/uniqush
   links:
     - redis
   ports:
