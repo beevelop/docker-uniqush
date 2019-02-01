@@ -16,3 +16,4 @@ EXPOSE 9898
 
 COPY uniqush-push-source.conf ./
 COPY entrypoint.sh ./
+ENTRYPOINT /opt/uniqush/entrypoint.sh

@@ -4,12 +4,10 @@ uniqush:
   links:
     - redis
   ports:
-    - "9899:9898"
+    - "9898:9898"
   restart: always
   environment:
     - REDIS_HOST=redis
-  entrypoint: /opt/uniqush/entrypoint.sh
-
 
 redis:
   container_name: uniqush-redis
