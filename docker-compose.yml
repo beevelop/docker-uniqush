@@ -1,6 +1,6 @@
 uniqush:
   container_name: uniqush-server
-  image: beevelop/uniqush
+  image: gogoo
   links:
     - redis
   ports:
@@ -8,7 +8,7 @@ uniqush:
   restart: always
   environment:
     - REDIS_HOST=redis
-  entrypoint: /usr/bin/envsubst < /opt/uniqush/uniqush-push-source.conf > /opt/uniqush/uniqush-push.conf
+  entrypoint: /opt/uniqush/entrypoint.sh
 
 
 redis:
