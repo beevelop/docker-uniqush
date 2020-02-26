@@ -2,13 +2,11 @@ FROM beevelop/base
 
 MAINTAINER Maik Hummel <m@ikhummel.com>
 
-ENV UNIQUSH_VERSION 2.6.1
+ENV UNIQUSH_VERSION 2.7.0
 
 WORKDIR /opt/uniqush
 
-COPY uniqush-push.conf ./
-
-RUN apt-get -qq update && apt-get -qq install -y curl && \
+RUN apt-get -qq update && apt-get -qq install -y curl gettext && \
     curl -sLo uniqush.deb https://github.com/uniqush/uniqush-push/releases/download/${UNIQUSH_VERSION}/uniqush-push_${UNIQUSH_VERSION}_amd64.deb && \
     dpkg -i uniqush.deb && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
@@ -16,4 +14,6 @@ RUN apt-get -qq update && apt-get -qq install -y curl && \
 
 EXPOSE 9898
 
-CMD uniqush-push -config /opt/uniqush/uniqush-push.conf
+COPY uniqush-push-source.conf ./
+COPY entrypoint.sh ./
+ENTRYPOINT /opt/uniqush/entrypoint.sh

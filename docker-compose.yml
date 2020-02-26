@@ -6,6 +6,8 @@ uniqush:
   ports:
     - "9898:9898"
   restart: always
+  environment:
+    - REDIS_HOST=redis
 
 redis:
   container_name: uniqush-redis
