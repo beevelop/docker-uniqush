@@ -1,6 +1,6 @@
 FROM beevelop/base
 
-ENV UNIQUSH_VERSION 2.6.1
+ENV UNIQUSH_VERSION 2.7.0
 
 WORKDIR /opt/uniqush
 
