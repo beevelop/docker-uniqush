@@ -1,7 +1,5 @@
 FROM beevelop/base
 
-MAINTAINER Maik Hummel <m@ikhummel.com>
-
 ENV UNIQUSH_VERSION 2.6.1
 
 WORKDIR /opt/uniqush
